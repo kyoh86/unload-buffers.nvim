@@ -1,0 +1,94 @@
+*unload-buffers.txt*                     A plugin to enhance to close buffers
+
+Author: kyoh86 <me@kyoh86.dev>
+License: MIT license
+
+===============================================================================
+CONTENTS                                            *unload-buffers-contents*
+
+USAGE                                               |unload-buffers-usage|
+  FUNCTIONS                                         |unload-buffers-function|
+  COMMANDS                                          |unload-buffers-command|
+  VARIABLES                                         |unload-buffers-variable|
+
+===============================================================================
+USAGE                                                  *unload-buffers-usage*
+
+*unload-buffers* provides functions to close buffers. Example: >
+    require("unload").menu({force = true})
+<
+
+-------------------------------------------------------------------------------
+FUNCTIONS                                           *unload-buffers-function*
+
+                                         *unload-params* *unload-parameters*
+
+Some functions receives a |Dictionary| has keys below.
+
+- `force`
+    A |Boolean| flag to wipe forcely the buffers which has changed.
+    Default: false
+
+- `keep_layout`
+    A |Boolean| flag to preserve window layout.
+    Default: false
+
+- `filter`
+    A |function| to filter buffers.
+    It receives a buffer object (see |getbufinfo()|) and return true if the
+    buffer should be wiped.
+    Default: nil (no buffer will be filtered out)
+
+- `debug`
+    UNIMPLEMENTED.
+    A |Boolean| flag to show log verbosely for debugging.
+
+                                                            *unload.select()*
+unload.select({params})
+
+    Lets you interactively select which buffers to wipe.
+
+                                                              *unload.menu()*
+unload.menu({params})
+
+    Open a menu to choose one of behaviors below.
+
+                                                           *unload.current()*
+unload.current({params})
+
+    Wipe a buffer in the current window.
+
+                                                             *unload.other()*
+unload.other({params})
+
+    Wipe buffers other of the one in the current window.
+
+                                                            *unload.hidden()*
+unload.hidden({params})
+
+    Wipe buffers loaded but currently not displayed in any window.
+    See |hidden-buffer| for details.
+
+                                                          *unload.nameless()*
+unload.nameless({params})
+
+    Wipe buffers having no name.
+
+                                                               *unload.all()*
+unload.all({params})
+
+    Wipe all buffers.
+
+
+-------------------------------------------------------------------------------
+COMMANDS                                             *unload-buffers-command*
+
+THIS PLUGIN NEVER DEFINES ANY COMMANDS.
+
+
+-------------------------------------------------------------------------------
+VARIABLE                                            *unload-buffers-variable*
+
+TODO (NOT DOCUMENTED YET)
+
+vim:filetype=help
